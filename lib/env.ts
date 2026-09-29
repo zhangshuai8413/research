@@ -6,8 +6,15 @@ export function appEnv(): AppEnv {
   return "development";
 }
 
-export function isPublicSite() {
+/** True for the public production hostname / APP_ENV. */
+export function isPublicHost(host?: string | null) {
+  const normalized = (host ?? "").split(":")[0].toLowerCase();
+  if (normalized === "research.alan-design.win") return true;
   return appEnv() === "production";
+}
+
+export function isPublicSite(host?: string | null) {
+  return isPublicHost(host);
 }
 
 export function analyticsCorsOrigins(): string[] {

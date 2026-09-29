@@ -42,7 +42,6 @@ export const ui = {
       line: "折线图",
     } satisfies Record<ChartKind, string>,
     chapterOf: (index: number, total: number) => `第 ${index} 章 / 共 ${total} 章`,
-    testBanner: "测试环境。对外分享请使用 research.alan-design.win。",
     notFound: "没有这一页",
   },
   en: {
@@ -85,7 +84,6 @@ export const ui = {
       line: "Line",
     } satisfies Record<ChartKind, string>,
     chapterOf: (index: number, total: number) => `Chapter ${index} of ${total}`,
-    testBanner: "Test environment. Public links use research.alan-design.win.",
     notFound: "This page is not here",
   },
 } as const;

@@ -1,5 +1,4 @@
 import { LanguageSwitch } from "@/components/LanguageSwitch";
-import { isPublicSite } from "@/lib/env";
 import { copyOf, isLocale } from "@/lib/ui";
 import { notFound } from "next/navigation";
 
@@ -16,7 +15,6 @@ export default async function LocaleLayout({
 
   return (
     <>
-      {isPublicSite() ? null : <div className="banner">{copy.testBanner}</div>}
       <div className="wrap">
         <header className="top">
           <a className="brand" href={`/${locale}`}>{copy.site}</a>
