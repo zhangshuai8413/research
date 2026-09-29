@@ -1,8 +1,12 @@
 node_modules
 .next
+.open-next
 out
 *.log
 data/analytics/
 .env
 .env.local
 tsconfig.tsbuildinfo
+.wrangler
+.playwright-cli
+

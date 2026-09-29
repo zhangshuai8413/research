@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "research",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2026-09-29",
+  "compatibility_flags": ["nodejs_compat"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "routes": [
+    { "pattern": "research.alan-design.win", "custom_domain": true },
+    { "pattern": "test.research.alan-design.win", "custom_domain": true }
+  ],
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "research"
+    }
+  ],
+  "vars": {
+    "APP_ENV": "production",
+    "NEXT_PUBLIC_SITE_URL": "https://research.alan-design.win",
+    "NEXT_PUBLIC_ANALYTICS_APP_ID": "research",
+    "ANALYTICS_APP_IDS": "research,logoDesign",
+    "ANALYTICS_CORS_ORIGINS": "https://research.alan-design.win,https://test.research.alan-design.win,http://localhost:3000"
+  }
+}
