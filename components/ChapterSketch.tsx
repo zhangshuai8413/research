@@ -72,7 +72,175 @@ export function LayoutGlyph({
   );
 }
 
-function sketchFor(bookId: string, chapterId: string) {
+function AiMetalSketch({ locale }: { locale: string }) {
+  const zh = locale !== "en";
+  const left = zh
+    ? { title: "铜", a: "50", aUnit: "万吨", aNote: "数据中心一年用铜", b: "45", bUnit: "万吨", bNote: "全球一年多出来的需求", foot: "大约吃完今年的增量" }
+    : { title: "Copper", a: "0.50", aUnit: "Mt", aNote: "data-center use, one year", b: "0.45", bUnit: "Mt", bNote: "all of this year’s demand growth", foot: "one use takes the year’s increase" };
+  const right = zh
+    ? { title: "铁矿", a: "0.5", aUnit: "%", aNote: "AI 用钢 ÷ 一年全球粗钢", b: "−36", bUnit: "%", bNote: "中国地产用钢，相对峰值", foot: "AI 盖不住这块下滑" }
+    : { title: "Iron ore", a: "0.5", aUnit: "%", aNote: "AI steel ÷ one year of world steel", b: "−36", bUnit: "%", bNote: "China property steel vs peak", foot: "AI does not offset that drop" };
+
+  const card = (
+    side: typeof left,
+    x: number,
+    stroke: string,
+  ) => (
+    <g>
+      <rect x={x} y="16" width="292" height="268" rx="16" fill="#fffdf8" stroke={stroke} strokeWidth="2.5" />
+      <text x={x + 146} y="52" textAnchor="middle" fill={stroke} fontSize="18" fontFamily="ui-sans-serif, system-ui" fontWeight="700">
+        {side.title}
+      </text>
+      <text x={x + 146} y="108" textAnchor="middle" fill={ink} fontSize="40" fontFamily="ui-sans-serif, system-ui" fontWeight="700">
+        {side.a}
+        <tspan fontSize="18" fontWeight="600">{side.aUnit}</tspan>
+      </text>
+      <text x={x + 146} y="132" textAnchor="middle" fill={ink} fontSize="13" fontFamily="ui-sans-serif, system-ui">
+        {side.aNote}
+      </text>
+      <text x={x + 146} y="168" textAnchor="middle" fill={copper} fontSize="14" fontFamily="ui-sans-serif, system-ui" fontWeight="700">
+        vs
+      </text>
+      <text x={x + 146} y="214" textAnchor="middle" fill={ink} fontSize="40" fontFamily="ui-sans-serif, system-ui" fontWeight="700">
+        {side.b}
+        <tspan fontSize="18" fontWeight="600">{side.bUnit}</tspan>
+      </text>
+      <text x={x + 146} y="238" textAnchor="middle" fill={ink} fontSize="13" fontFamily="ui-sans-serif, system-ui">
+        {side.bNote}
+      </text>
+      <text x={x + 146} y="266" textAnchor="middle" fill={stroke} fontSize="13" fontFamily="ui-sans-serif, system-ui" fontWeight="650">
+        {side.foot}
+      </text>
+    </g>
+  );
+
+  return (
+    <svg className="chapter-sketch ai-metal-sketch" viewBox="0 0 640 300" aria-hidden="true">
+      <rect x="1" y="1" width="638" height="298" rx="16" fill={paper} stroke={line} />
+      {card(left, 16, green)}
+      {card(right, 332, copper)}
+    </svg>
+  );
+}
+
+function PairSketch({
+  left,
+  right,
+}: {
+  left: { title: string; value: string; unit: string; note: string };
+  right: { title: string; value: string; unit: string; note: string };
+}) {
+  const card = (
+    side: { title: string; value: string; unit: string; note: string },
+    x: number,
+    stroke: string,
+  ) => (
+    <g>
+      <rect x={x} y="16" width="292" height="212" rx="16" fill="#fffdf8" stroke={stroke} strokeWidth="2.5" />
+      <text x={x + 146} y="52" textAnchor="middle" fill={stroke} fontSize="16" fontFamily="ui-sans-serif, system-ui" fontWeight="700">
+        {side.title}
+      </text>
+      <text x={x + 146} y="118" textAnchor="middle" fill={ink} fontSize="40" fontFamily="ui-sans-serif, system-ui" fontWeight="700">
+        {side.value}
+        <tspan fontSize="18" fontWeight="600">{side.unit}</tspan>
+      </text>
+      <text x={x + 146} y="156" textAnchor="middle" fill={ink} fontSize="14" fontFamily="ui-sans-serif, system-ui">
+        {side.note}
+      </text>
+    </g>
+  );
+  return (
+    <svg className="chapter-sketch ai-metal-sketch" viewBox="0 0 640 244" aria-hidden="true">
+      <rect x="1" y="1" width="638" height="242" rx="16" fill={paper} stroke={line} />
+      {card(left, 16, green)}
+      {card(right, 332, copper)}
+    </svg>
+  );
+}
+
+function GoldPathSketch({ locale }: { locale: string }) {
+  const zh = locale !== "en";
+  const points = zh
+    ? [
+        ["1月高点", "5627"],
+        ["6月低点", "3955"],
+        ["9月24日", "4256"],
+      ]
+    : [
+        ["Jan peak", "5627"],
+        ["Jun low", "3955"],
+        ["24 Sep", "4256"],
+      ];
+  return (
+    <svg className="chapter-sketch ai-metal-sketch" viewBox="0 0 640 200" aria-hidden="true">
+      <rect x="1" y="1" width="638" height="198" rx="16" fill={paper} stroke={line} />
+      {points.map(([title, value], index) => {
+        const x = 16 + index * 204;
+        const stroke = index === 1 ? copper : green;
+        return (
+          <g key={title}>
+            <rect x={x} y="16" width="192" height="168" rx="16" fill="#fffdf8" stroke={stroke} strokeWidth="2.5" />
+            <text x={x + 96} y="58" textAnchor="middle" fill={stroke} fontSize="16" fontFamily="ui-sans-serif, system-ui" fontWeight="700">
+              {title}
+            </text>
+            <text x={x + 96} y="118" textAnchor="middle" fill={ink} fontSize="36" fontFamily="ui-sans-serif, system-ui" fontWeight="700">
+              {value}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
+
+function metalsSketch(chapterId: string, locale: string) {
+  if (chapterId === "precious") return <GoldPathSketch locale={locale} />;
+  const zh = locale !== "en";
+  const pair = (zh
+    ? {
+        summary: ["机房建设", "50", "万吨", "30–70 的中枢", "其中 AI", "10–20", "万吨", "真正多出来的"],
+        panorama: ["黄金", "−24", "%", "高点 5,627，现 4,256", "铜升水", "106", "美元", "8月17日曾到 544"],
+        copper: ["8月17日", "544", "美元", "现货比三个月贵", "9月下旬", "106", "美元", "升水收到这里"],
+        uranium: ["现货", "90", "美元", "每磅，9月中", "长期合同", "97", "美元", "电费愿意签长约"],
+        "ai-tiers": ["机房", "50", "万吨", "大约等于今年增量", "AI 那一层", "10–20", "万吨", "不要整栋都算 AI"],
+        rebar: ["AI 用钢", "0.5", "%", "相对一年全球粗钢", "地产用钢", "−36", "%", "相对 2020 年峰值"],
+        acid: ["停出口", "5", "月", "4月只是通报", "贸易少了", "280", "万吨", "CRU 对 2026 年"],
+        zijin: ["矿产金", "+13.4", "%", "46,702 千克", "碳酸锂", "4.4", "万吨", "正式半年报"],
+        lithium: ["上半年", "4.4", "万吨", "紫金当量碳酸锂", "9月28日", "12.2", "万元", "电池级，每吨"],
+        tin: ["8月中", "5535", "吨", "当时约等于 3 天", "9月25日", "4590", "吨", "仓库更少了"],
+        "tin-leaders": ["黄金", "−24", "%", "较高点，9月24日", "锡库存", "4590", "吨", "9月25日"],
+      }
+    : {
+        summary: ["Data centers", "0.50", " Mt", "midpoint of 0.30–0.70", "AI-only slice", "0.10–0.20", " Mt", "the extra from AI designs"],
+        panorama: ["Gold", "−24", "%", "peak 5,627, now 4,256", "Cu premium", "106", "", "was 544 on 17 Aug"],
+        copper: ["17 Aug", "544", "", "$/t cash over 3M", "late Sep", "106", "", "premium narrowed"],
+        uranium: ["Spot", "90", "", "$/lb, mid-Sep", "Term", "97", "", "utilities pay for a lock-in"],
+        "ai-tiers": ["Buildings", "0.50", " Mt", "about this year’s growth", "AI slice", "0.10–0.20", " Mt", "do not count the whole site"],
+        rebar: ["AI steel", "0.5", "%", "of one year of world steel", "Property", "−36", "%", "vs the 2020 peak"],
+        acid: ["Export halt", "May", "", "April was the notice", "Trade lost", "2.8", " Mt", "CRU, for 2026"],
+        zijin: ["Mined gold", "+13.4", "%", "46,702 kg", "Lithium", "44", " kt", "formal half-year"],
+        lithium: ["First half", "44", " kt", "Zijin LCE", "28 Sep", "122k", "", "yuan per tonne"],
+        tin: ["Mid-Aug", "5535", " t", "then about 3 days", "25 Sep", "4590", " t", "the warehouse is smaller"],
+        "tin-leaders": ["Gold", "−24", "%", "from the peak, 24 Sep", "Tin stocks", "4590", " t", "25 Sep"],
+      })[chapterId];
+  if (!pair) return null;
+  const [lt, lv, lu, ln, rt, rv, ru, rn] = pair;
+  return (
+    <PairSketch
+      left={{ title: lt, value: lv, unit: lu, note: ln }}
+      right={{ title: rt, value: rv, unit: ru, note: rn }}
+    />
+  );
+}
+
+function sketchFor(bookId: string, chapterId: string, locale: string) {
+  if (bookId === "mining" && chapterId === "ai") {
+    return <AiMetalSketch locale={locale} />;
+  }
+  if (bookId === "mining") {
+    const drawn = metalsSketch(chapterId, locale);
+    if (drawn) return drawn;
+  }
   if (bookId === "midea") {
     if (chapterId === "heatwave") {
       return (
@@ -332,11 +500,13 @@ export function ChapterSketch({
   chapterId,
   layout,
   chart,
+  locale = "zh",
 }: {
   bookId: string;
   chapterId: string;
   layout: string;
   chart?: string;
+  locale?: string;
 }) {
-  return sketchFor(bookId, chapterId) ?? layoutFallback(layout, chart);
+  return sketchFor(bookId, chapterId, locale) ?? layoutFallback(layout, chart);
 }

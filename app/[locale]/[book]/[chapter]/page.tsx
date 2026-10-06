@@ -51,7 +51,7 @@ export default async function ChapterPage({
       </p>
       <h1>{copy.title}</h1>
       <p className="stance">{copy.stance}</p>
-      <ChapterSketch bookId={book.id} chapterId={chapter.id} layout={layout} chart={chapter.chart} />
+      <ChapterSketch bookId={book.id} chapterId={chapter.id} layout={layout} chart={chapter.chart} locale={locale} />
       <QuestionBox
         locale={locale}
         bookId={book.id}

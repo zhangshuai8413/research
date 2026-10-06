@@ -9,36 +9,712 @@ export const books: Book[] = [
   {
     id: "mining",
     shelf: "industry",
-    updated: "2026-08-21",
+    updated: "2026-09-30",
     frame: {
       zh: {
-        title: "读矿业先抓这三问",
+        title: "读这本先问三句",
         points: [
-          "铜和铁是不是一门生意：AI 推的是铜的边际，铁矿仍看中国钢。",
-          "两个价格一起算：铁矿每跌 10 美元，往往比铜涨 1000 美元还伤利润。",
-          "看好铜价，不等于下一年矿企利润更高：还要扣产量、成本和政府拿走的那一截。",
+          "这一年不是所有金属一起涨。黄金回落的时候，铜的仓库仍可以很紧。",
+          "机房大约吃掉今年多出来的铜。铁矿仍看中国的钢筋。",
+          "看好铜价，不等于矿企下一年利润更高：还要扣产量、成本和政府拿走的那一截。",
         ],
       },
       en: {
-        title: "Read mining through three questions",
+        title: "Three questions for this book",
         points: [
-          "Copper and iron are not one trade: AI moves copper’s margin; iron ore still tracks China steel.",
-          "Price both together: a $10 iron-ore drop can hurt more than a $1,000 copper rise helps.",
-          "Liking copper is not higher next-year miner profit: volumes, costs, and government take still matter.",
+          "The metals did not rise together. Gold can fall while a copper warehouse stays tight.",
+          "Data-center buildings take about this year’s extra copper. Iron ore still follows China’s rebar.",
+          "Liking the copper price is not higher next-year miner profit: volumes, costs, and the government’s cut still matter.",
         ],
       },
     },
     zh: {
-      title: "矿业：铜为王、铁为盾",
-      stance: "铜优于铁，但矿企要分开看",
-      blurb: "有的章用对照柱，有的用结论卡和双栏。先看利润结构，再看因子、防守角色和可能证伪的信号。",
+      title: "全球矿业：铜为王、铁为盾",
+      stance: "先分清是哪种金属，再看哪家矿企",
+      blurb: "电线、钢筋、黄金和硫酸在前。矿企的利润、税和可能被证伪的信号在后。",
     },
     en: {
-      title: "Mining: copper over iron",
-      stance: "Copper over iron, but miners are not one trade",
-      blurb: "Some chapters use bars, others use thesis cards or side-by-side. Start with profit mix, then factors, the defensive role of iron, and what would break the view.",
+      title: "Global mining: copper over iron",
+      stance: "Name the metal first, then the miner",
+      blurb: "Wire, rebar, gold, and acid come first. Miner profit, tax, and what would break the view come after.",
     },
     chapters: [
+      {
+        id: "summary",
+        released: true,
+        layout: "thesis",
+        source: "ICSG 2026-04-23；Kpler 2026-07-17；Westmetall 2026-09-24；LME 2026-09-21至25；CRU 2026-09-18",
+        zh: {
+          title: "五句就够",
+          stance: "先分清是电线、钢筋，还是备用的钱",
+          summary:
+            "铜是充电线和墙上的电线，金是不想只拿一种钱时留着的备用现金，铁是小区里的钢筋。今年这三样不是一个故事。",
+          points: [
+            {
+              judge: "全年账本和仓库不是一回事",
+              contrast: {
+                left: "9.6万吨",
+                leftLabel: "ICSG：2026 年精铜过剩",
+                right: "106美元",
+                rightLabel: "9 月下旬现货比三个月贵（8 月中曾到 544）",
+              },
+              anchor: "全年可以略有富余，某一地的仓库仍可以很紧。",
+              so: "别把 8 月的挤兑写成「今年全世界的铜不够」。",
+            },
+            {
+              judge: "机房和 AI 要拆开",
+              contrast: {
+                left: "50万吨",
+                leftLabel: "数据中心建设用铜，30–70 的中枢",
+                right: "10–20万吨",
+                rightLabel: "其中真正因 AI 设计多出来的",
+              },
+              anchor: "50 万吨大约等于今年全球多出来的 45 万吨需求。AI 那一层更小。",
+              so: "看见 AI，先问这是整栋机房，还是多出来的那一层。",
+            },
+            {
+              judge: "铁矿看的是钢筋",
+              contrast: {
+                left: "0.5%",
+                leftLabel: "AI 相关的钢 ÷ 一年全球粗钢",
+                right: "−36%",
+                rightLabel: "中国地产用钢，相对 2020 年峰值",
+              },
+              anchor: "小区少用的钢筋，比数据中心的钢梁大得多。",
+              so: "看到「AI 金属」，先确认它是不是铁矿。",
+            },
+            {
+              judge: "黄金从高点回落",
+              contrast: {
+                left: "5627",
+                leftLabel: "1 月 29 日高点，美元/盎司",
+                right: "4256",
+                rightLabel: "9 月 24 日伦敦定盘，约 −24%",
+              },
+              anchor: "备用的钱也会跌。年内涨跌幅这次没有重算。",
+              so: "贵，不等于今年还在创新高。",
+            },
+            {
+              judge: "硫酸是洗涤剂",
+              contrast: {
+                left: "5月",
+                leftLabel: "中国暂停硫酸出口",
+                right: "280万吨",
+                rightLabel: "CRU：2026 年贸易市场少掉的量",
+              },
+              anchor: "矿石像脏衣服。没有酸，就洗不出铜和铀。",
+              so: "8 月稿的硫磺涨 160%、缺口 510 万吨，没有新报价，这里不用。",
+            },
+          ],
+        },
+        en: {
+          title: "Five sentences",
+          stance: "Separate the wire, the rebar, and the cash reserve",
+          summary:
+            "Copper is the charger cable and the wire in the wall. Gold is cash kept so you are not holding only one kind of money. Iron is the rebar in an apartment block. This year those three are different stories.",
+          points: [
+            {
+              judge: "The year’s ledger and the warehouse differ",
+              contrast: {
+                left: "96 kt",
+                leftLabel: "ICSG: 2026 refined-copper surplus",
+                right: "$106",
+                rightLabel: "Late-Sep cash over 3M (about $544 in mid-August)",
+              },
+              anchor: "The year can show a small surplus while one region’s warehouse stays tight.",
+              so: "Do not turn August’s squeeze into “the world ran out of copper.”",
+            },
+            {
+              judge: "Split the building from the AI slice",
+              contrast: {
+                left: "0.50 Mt",
+                leftLabel: "Copper in data-center construction, midpoint of 0.30–0.70",
+                right: "0.10–0.20 Mt",
+                rightLabel: "The extra from AI designs",
+              },
+              anchor: "0.50 Mt is about this year’s 0.45 Mt of extra global demand. The AI layer is smaller.",
+              so: "When a sentence says AI, ask whether it means the whole building.",
+            },
+            {
+              judge: "Iron ore is about rebar",
+              contrast: {
+                left: "0.5%",
+                leftLabel: "AI-related steel ÷ one year of world steel",
+                right: "−36%",
+                rightLabel: "China property steel vs the 2020 peak",
+              },
+              anchor: "The steel apartments stopped using dwarfs the steel in data centers.",
+              so: "If a label says AI metal, check that it is not iron ore.",
+            },
+            {
+              judge: "Gold is down from the high",
+              contrast: {
+                left: "5627",
+                leftLabel: "29 Jan peak, $/oz",
+                right: "4256",
+                rightLabel: "24 Sep London fix, about −24%",
+              },
+              anchor: "A cash reserve can fall. Year-to-date percentages were not recalculated.",
+              so: "Expensive does not mean it is still making highs.",
+            },
+            {
+              judge: "Sulfuric acid is the detergent",
+              contrast: {
+                left: "May",
+                leftLabel: "China halted acid exports",
+                right: "2.8 Mt",
+                rightLabel: "CRU: tonnes leaving the 2026 trade",
+              },
+              anchor: "Ore is the dirty laundry. Without acid you do not get the copper or the uranium out.",
+              so: "The August sulfur +160% and 5.1 Mt gap have no new quote, so they are not used here.",
+            },
+          ],
+        },
+      },
+      {
+        id: "panorama",
+        released: true,
+        layout: "compare",
+        source: "Westmetall 2026-09-23/24；LME Weekly Review 2026-09-21至25；ICSG 2026-04-23",
+        zh: {
+          title: "同一年的两个故事",
+          stance: "黄金在回落，铜的仓库紧过一阵",
+          summary:
+            "黄金像家里留着的备用现金。铜是墙上的电线。左边看离高点多远，右边看仓库还紧不紧。",
+          compare: {
+            left: {
+              name: "黄金：备用的钱",
+              lines: [
+                "1 月 29 日高点约 5,627 美元/盎司",
+                "6 月 30 日低点约 3,955",
+                "9 月 24 日伦敦定盘 4,256，较高点约 −24%",
+                "它不是手机里用掉的那点金属",
+              ],
+            },
+            right: {
+              name: "铜：墙上的电线",
+              lines: [
+                "8 月 17 日，现货比三个月贵约 544 美元/吨",
+                "9 月 21–25 日当周，这个差价收到约 106 美元",
+                "仓库大约 25 万吨，不再是被搬空的样子",
+                "全年账本仍是过剩约 9.6 万吨（ICSG，4 月 23 日）",
+              ],
+            },
+          },
+        },
+        en: {
+          title: "Two stories in one year",
+          stance: "Gold is off the high; copper’s warehouse was tight for a while",
+          summary:
+            "Gold is cash kept at home. Copper is the wire in the wall. Left: how far gold is from the peak. Right: whether the warehouse is still tight.",
+          compare: {
+            left: {
+              name: "Gold: the cash reserve",
+              lines: [
+                "Peak about $5,627/oz on 29 January",
+                "Trough about $3,955 on 30 June",
+                "London fix $4,256 on 24 September, about −24% from the peak",
+                "This is not the trace of metal inside a phone",
+              ],
+            },
+            right: {
+              name: "Copper: the wire in the wall",
+              lines: [
+                "On 17 August, cash was about $544/t over three-month",
+                "In the week of 21–25 September that premium was about $106",
+                "Stocks were about 250 kt, no longer an emptied warehouse",
+                "The year’s ledger is still a surplus of about 96 kt (ICSG, 23 April)",
+              ],
+            },
+          },
+        },
+      },
+      {
+        id: "copper",
+        released: true,
+        layout: "timeline",
+        source: "LME Weekly Review 2026-09-21至25；Westmetall 2026-09-23；Reuters 2026-09-10；SMM 2026-09-29",
+        zh: {
+          title: "铜：仓库紧，不等于全年缺",
+          stance: "8 月是挤兑，9 月升水收窄了",
+          summary:
+            "充电线和墙上的电线都是铜。饭桌已经坐满时，多来的客人会把今年新加的饭吃完，所以最后一碗定价。那桌客人主要是机房，不是 AI 单独一桌。全年账本（ICSG）仍是过剩约 9.6 万吨。",
+          timeline: [
+            { when: "4 月中起", what: "LME 可用库存流失，到 8 月初大约少了 75%" },
+            { when: "8 月 17 日", what: "现货比三个月贵约 544 美元/吨" },
+            { when: "8 月 18 日", what: "交仓之后，差价回到约 248 美元；三个月铜约 13,987" },
+            { when: "9 月 21–25 日", what: "三个月铜约 14,623；升水约 106 美元；总库存约 25.2 万吨" },
+            { when: "到 9 月 29 日", what: "精炼铜关税仍没有最终决定。没有公告，不等于取消" },
+          ],
+        },
+        en: {
+          title: "Copper: a tight warehouse is not an empty year",
+          stance: "August was a squeeze; the September premium narrowed",
+          summary:
+            "Copper is the charger cable and the wire in the wall. When the table is already full, extra guests finish the rice added this year, so the last bowl sets the price. Those guests are mostly data-center buildings, not AI on its own. ICSG’s ledger for the year is still a surplus of about 96 kt.",
+          timeline: [
+            { when: "From mid-April", what: "LME available stocks drained, about 75% lower by early August" },
+            { when: "17 Aug", what: "Cash about $544/t over three-month" },
+            { when: "18 Aug", what: "After deliveries the premium fell to about $248; three-month copper about $13,987" },
+            { when: "21–25 Sep", what: "Three-month about $14,623; premium about $106; stocks about 252 kt" },
+            { when: "Through 29 Sep", what: "No final decision on a refined-copper tariff. Silence is not a cancellation" },
+          ],
+        },
+      },
+      {
+        id: "uranium",
+        released: true,
+        chart: "bar",
+        values: [90, 97],
+        source: "TradeTech 2026-09-15 当周（FNArena 引述）；UxC 长期指标 9 月初约 96 美元/磅",
+        zh: {
+          title: "铀：电费愿意签长约",
+          stance: "长协比现货贵，买的是夜里也有电",
+          summary:
+            "医院的灯夜里不能关，太阳能一到天黑就没了。核电站吃的是铀。9 月中旬现货约 90 美元/磅，长期合同约 97。数据中心用电要看 IEA 的路径：2024 年约 415 太瓦时，2030 年约 950，不是 2026 年已经超过 1,000。",
+          categories: ["现货", "长期合同"],
+          seriesName: "美元 / 磅",
+          suffix: "",
+        },
+        en: {
+          title: "Uranium: utilities pay up for a long contract",
+          stance: "Term is above spot because the lights have to stay on",
+          summary:
+            "A hospital cannot switch the lights off at night, and solar goes dark. A reactor runs on uranium. In mid-September spot was about $90/lb and the long-term indicator about $97. Data-center power follows the IEA path: about 415 TWh in 2024 and about 950 TWh in 2030, not “already above 1,000 TWh in 2026.”",
+          categories: ["Spot", "Term"],
+          seriesName: "$ / lb",
+          suffix: "",
+        },
+      },
+      {
+        id: "ai-tiers",
+        released: true,
+        layout: "matrix",
+        source: "Kpler 2026-07-17；IEA《Energy and AI》；TradeTech 2026-09-15；CRU 2026-09-18；中钢协 2026-09-17",
+        zh: {
+          title: "一张表看完",
+          stance: "先问你在生活里在哪遇见它",
+          summary:
+            "每种金属只记一个问题和一个数字。电工钢是变压器铁芯，交期可以拉到四五年，但这本书里的矿商几乎买不到它。",
+          matrix: {
+            headers: ["生活里在哪", "AI 算不算", "记住一个数"],
+            rows: [
+              { label: "铜", cells: ["充电线、墙上的电线", "机房大约等于今年增量；AI 只是其中 10–20 万吨", "50 万吨对 45 万吨"] },
+              { label: "铀", cells: ["核电站，给不能断电的地方供电", "算，但是往后几年的电，不是今年已经 1,000 太瓦时", "长协 97 > 现货 90"] },
+              { label: "铝", cells: ["易拉罐、窗框", "铜太贵时，电缆可以改用铝", "不是今年的主线"] },
+              { label: "锡", cells: ["电路板上把芯片焊住的那一点", "算一点", "9 月 25 日库存 4,590 吨"] },
+              { label: "铁矿", cells: ["小区里的钢筋", "几乎不算", "0.5% 对 −36%"] },
+              { label: "硫酸", cells: ["不是金属，是洗涤剂", "没有它，铜和铀都洗不出来", "5 月停出口，贸易少约 280 万吨"] },
+            ],
+          },
+        },
+        en: {
+          title: "One table",
+          stance: "Start from where you already meet the metal",
+          summary:
+            "One problem and one number per metal. Electrical steel is the core of a transformer, and lead times can stretch to four or five years, but the miners in this book barely own it.",
+          matrix: {
+            headers: ["Where you meet it", "Does AI count", "One number"],
+            rows: [
+              { label: "Copper", cells: ["Charger cable, wire in the wall", "Buildings ≈ this year’s growth; AI is 0.10–0.20 Mt of that", "0.50 Mt vs 0.45 Mt"] },
+              { label: "Uranium", cells: ["Reactors, for lights that stay on", "Yes, over several years — not 1,000 TWh already in 2026", "Term 97 > spot 90"] },
+              { label: "Aluminium", cells: ["Cans and window frames", "Cable can switch when copper is expensive", "Not this year’s main line"] },
+              { label: "Tin", cells: ["The solder dot holding a chip", "A little", "Stocks 4,590 t on 25 Sep"] },
+              { label: "Iron ore", cells: ["Rebar in an apartment block", "Barely", "0.5% vs −36%"] },
+              { label: "Acid", cells: ["Not a metal. The detergent", "Without it, copper and uranium stay in the rock", "Halt in May; about 2.8 Mt less trade"] },
+            ],
+          },
+        },
+      },
+      {
+        id: "rebar",
+        released: true,
+        layout: "compare",
+        source: "中钢协 2026-09-17；地产用钢相对 2020 年峰值 −36.5%；数据中心用钢相对全球粗钢约 0.5%",
+        zh: {
+          title: "铁矿：看钢筋，不看机房",
+          stance: "中国少盖的楼，比 AI 多出来的钢大得多",
+          summary:
+            "铁矿是小区里的钢筋。数据中心也用钢，相对一年的全球粗钢大约 0.5%。中国地产用钢比 2020 年峰值少了大约 36%。8 月全国粗钢日产 241 万吨。1–8 月 6.52 亿吨，按这个进度全年大约 9.8 亿吨，9.5 亿和 10 亿的分歧还在。",
+          compare: {
+            left: {
+              name: "几乎可以忽略",
+              lines: [
+                "0.5%：数据中心的钢，相对一年全球粗钢",
+                "未来五年最多大约 1,000 万吨钢",
+                "全球一年粗钢大约 19 亿吨",
+                "所以 AI 解释不了铁矿价格",
+              ],
+            },
+            right: {
+              name: "真正在定价",
+              lines: [
+                "−36%：中国地产用钢，相对 2020 年峰值",
+                "8 月粗钢日产 240.68 万吨，同比 −3.7%",
+                "1–8 月粗钢 6.52 亿吨，同比 −3.1%",
+                "按进度全年约 9.8 亿吨，方向还没定死",
+              ],
+            },
+          },
+        },
+        en: {
+          title: "Iron ore: watch the rebar, not the data center",
+          stance: "The steel China stopped using in apartments dwarfs AI steel",
+          summary:
+            "Iron ore is the rebar in an apartment block. Data centers use steel too, about 0.5% of one year of world crude steel. China property steel is about 36% below the 2020 peak. August national crude steel ran at 2.41 million tonnes a day. January–August was 652 million tonnes; that pace is about 980 million tonnes for the year. The 950-versus-1,000 million tonne argument is still open.",
+          compare: {
+            left: {
+              name: "Small enough to ignore",
+              lines: [
+                "0.5%: data-center steel against one year of world crude steel",
+                "At most about 10 million tonnes of steel over five years",
+                "About 1.9 billion tonnes of crude steel in a single year",
+                "AI does not explain the iron-ore price",
+              ],
+            },
+            right: {
+              name: "What actually prices it",
+              lines: [
+                "−36%: China property steel versus the 2020 peak",
+                "August crude steel 2.4068 Mt a day, −3.7% year on year",
+                "January–August crude steel 652 Mt, −3.1%",
+                "That pace is about 980 Mt for the year. The direction is not settled",
+              ],
+            },
+          },
+        },
+      },
+      {
+        id: "precious",
+        released: true,
+        chart: "bar",
+        values: [5627, 3955, 4256],
+        source: "1 月 29 日高点与 6 月 30 日低点见调研稿；Westmetall 伦敦定盘 2026-09-24 为 4,255.55",
+        zh: {
+          title: "黄金：备用的钱也会跌",
+          stance: "较高点大约低了 24%",
+          summary:
+            "黄金不是手机里用掉的那种金属。它更像家里留着的备用现金：不是明天要花，是不想只拿一种钱。1 月高点 5,627，6 月低点 3,955，9 月 24 日伦敦定盘 4,256。峰值不能拿来给金矿估值。年内涨跌幅这次没有重算。",
+          categories: ["1 月高点", "6 月低点", "9 月 24 日"],
+          seriesName: "黄金美元/盎司",
+          suffix: "",
+        },
+        en: {
+          title: "Gold: the cash reserve can fall",
+          stance: "About 24% below the high",
+          summary:
+            "Gold is not the metal a phone uses up. It is closer to cash kept at home: not for tomorrow’s shopping, but so you are not holding only one kind of money. The January high was 5,627, the June low 3,955, and the 24 September London fix 4,256. Do not value a gold mine on the peak. Year-to-date percentages were not recalculated.",
+          categories: ["Jan peak", "Jun low", "24 Sep"],
+          seriesName: "Gold $/oz",
+          suffix: "",
+        },
+      },
+      {
+        id: "acid",
+        released: true,
+        layout: "thesis",
+        source: "Bloomberg 2026-04-10；CRU / BC Insight 2026-05-27 与 2026-09-18。Cigar Lake 停产 12 天仍是 8 月稿，本次未重核公司公告",
+        zh: {
+          title: "硫酸：矿石的洗涤剂",
+          stance: "缺的有时是酸，不是矿",
+          summary:
+            "铜矿石和铀矿石像脏衣服，硫酸是洗涤剂。2026 年 5 月起中国暂停硫酸出口，4 月只是通报。CRU 估计今年贸易市场少大约 280 万吨。智利到岸价从年初约 190 美元/吨升到 5 月约 500，后来从高点回落。8 月稿的涨 160% 和缺口 510 万吨不再引用。",
+          points: [
+            {
+              judge: "5 月才停",
+              contrast: {
+                left: "5月",
+                leftLabel: "暂停出口。4 月是通报",
+                right: "280万吨",
+                rightLabel: "CRU：2026 年贸易市场少掉的量",
+              },
+              anchor: "1–4 月还有大约 70 万吨出口配额。",
+              so: "记月份和 280 万吨，不记那张没有新报价的涨幅榜。",
+            },
+            {
+              judge: "铜和铀一起被卡住",
+              anchor: "智利、刚果金把铜从矿石里洗出来，铀选厂也要酸。Cigar Lake 7 月断酸停产约 12 天，这句仍是 8 月稿。",
+              so: "没有新的公司公告之前，不把 12 天写成新事实。",
+            },
+            {
+              judge: "镍也吃酸",
+              anchor: "印尼用酸从红土镍矿里提出镍。",
+              so: "盯酸能不能运到，不必为了这个判断再单买一只酸。",
+            },
+          ],
+        },
+        en: {
+          title: "Sulfuric acid: the detergent for ore",
+          stance: "Sometimes the shortage is the acid, not the ore",
+          summary:
+            "Copper ore and uranium ore are dirty laundry. Sulfuric acid is the detergent. China halted acid exports from May 2026; April was the notice. CRU estimates about 2.8 million tonnes left the traded market this year. Chile’s delivered price rose from about $190/t at the start of the year to about $500/t in May, then eased. The August +160% and 5.1 Mt gap are not used.",
+          points: [
+            {
+              judge: "The halt is May",
+              contrast: {
+                left: "May",
+                leftLabel: "Exports halted. April was the notice",
+                right: "2.8 Mt",
+                rightLabel: "CRU: tonnes leaving the 2026 trade",
+              },
+              anchor: "January–April still had an export quota of about 0.7 Mt.",
+              so: "Keep the month and the 2.8 Mt. Drop the unverified percentage board.",
+            },
+            {
+              judge: "Copper and uranium stall together",
+              anchor: "Chile and the DRC wash copper out of ore, and uranium mills need acid too. Cigar Lake’s roughly 12-day July stop is still the August draft.",
+              so: "Without a fresh company notice, do not treat the 12 days as a new fact.",
+            },
+            {
+              judge: "Nickel uses acid too",
+              anchor: "Indonesia uses acid to pull nickel out of laterite ore.",
+              so: "Watch whether the acid can ship. That does not require a separate acid stock.",
+            },
+          ],
+        },
+      },
+      {
+        id: "zijin",
+        released: true,
+        layout: "compare",
+        source: "紫金矿业 2026 年半年度报告（2026-08-22 摘要）",
+        zh: {
+          title: "紫金：金价跌了，矿挖得更多",
+          stance: "用正式半年报，不用业绩预告",
+          summary:
+            "这是中国最大的金铜矿商之一。金价从高点跌下来，矿产金仍有 46,702 千克，同比 +13.4%。归母净利润 391.70 亿元，+68.17%。当量碳酸锂 4.4 万吨。预告里的 +15% 和 +514% 不再使用。",
+          compare: {
+            left: {
+              name: "正式数字",
+              lines: [
+                "归母净利润 391.70 亿元，+68.17%",
+                "扣非 380.35 亿元，+75.89%",
+                "矿产金 46,702 千克，+13.4%",
+                "当量碳酸锂 4.4 万吨",
+              ],
+            },
+            right: {
+              name: "怎么读",
+              lines: [
+                "单价跌了，卖出的杯数更多，总账还可以涨",
+                "这和少挖、把现金还给股东的路不一样",
+                "铜产量仍受卡莫阿拖累",
+                "矿山在很多国家，政治风险是标配",
+              ],
+            },
+          },
+        },
+        en: {
+          title: "Zijin: the gold price fell, and they mined more",
+          stance: "Use the formal half-year report, not the preview",
+          summary:
+            "One of China’s largest gold-and-copper miners. Gold fell from its high, and mined gold was still 46,702 kg, up 13.4%. Net profit attributable to shareholders was RMB 39.170 billion, up 68.17%. Lithium carbonate equivalent was 44 kt. The preview’s +15% and +514% are not used.",
+          compare: {
+            left: {
+              name: "The formal figures",
+              lines: [
+                "Net profit RMB 39.170 bn, +68.17%",
+                "Adjusted RMB 38.035 bn, +75.89%",
+                "Mined gold 46,702 kg, +13.4%",
+                "Lithium carbonate equivalent 44 kt",
+              ],
+            },
+            right: {
+              name: "How to read it",
+              lines: [
+                "The price of each cup fell, and they sold more cups",
+                "This is a different path from digging less and returning the cash",
+                "Copper tonnes are still held back by Kamoa",
+                "Mines sit in many countries, so politics is part of the position",
+              ],
+            },
+          },
+        },
+      },
+      {
+        id: "tin-leaders",
+        released: true,
+        layout: "thesis",
+        source: "Westmetall 2026-09-24；SMM 2026-09-25；Mysteel 2026-09-29。8 月涨跌幅未重算",
+        zh: {
+          title: "不要用一张涨跌榜概括今年",
+          stance: "9 月没有重算谁涨得最多",
+          summary:
+            "8 月那张「锡 +37.5%、铜 +18%、钯 −22%」不再当现价。现在只放三个对得上的读数：黄金离高点、锡的仓库、铁矿的价格。",
+          points: [
+            {
+              judge: "黄金看离高点多远",
+              contrast: {
+                left: "5627",
+                leftLabel: "1 月 29 日，美元/盎司",
+                right: "4256",
+                rightLabel: "9 月 24 日，大约 −24%",
+              },
+              anchor: "备用的钱从高点跌下来了。",
+              so: "年内涨了还是跌了，这次没有重算。",
+            },
+            {
+              judge: "锡看仓库",
+              contrast: {
+                left: "5535吨",
+                leftLabel: "8 月中旬库存，当时约等于 3 天",
+                right: "4590吨",
+                rightLabel: "9 月 25 日",
+              },
+              anchor: "仓库更少了。新的「等于几天」没有官方换算。",
+              so: "不把 3 天写成 9 月的新结论。",
+            },
+            {
+              judge: "铁矿看钢厂",
+              anchor: "9 月 29 日，62% 低铝粉矿大约 97.5 美元/干吨。它跟着中国少产的钢走。",
+              so: "不要把它写进 AI 的涨跌榜。",
+            },
+          ],
+        },
+        en: {
+          title: "Do not summarize the year with one leaderboard",
+          stance: "September did not re-rank who rose the most",
+          summary:
+            "The August board — tin +37.5%, copper +18%, palladium −22% — is not treated as the current price. Three readings that still match: gold versus its peak, tin in the warehouse, and the iron-ore price.",
+          points: [
+            {
+              judge: "Gold: distance from the high",
+              contrast: {
+                left: "5627",
+                leftLabel: "29 January, $/oz",
+                right: "4256",
+                rightLabel: "24 September, about −24%",
+              },
+              anchor: "The cash reserve is down from the peak.",
+              so: "The year-to-date percentage was not recalculated.",
+            },
+            {
+              judge: "Tin: the warehouse",
+              contrast: {
+                left: "5,535 t",
+                leftLabel: "Mid-August stocks, then about 3 days",
+                right: "4,590 t",
+                rightLabel: "25 September",
+              },
+              anchor: "The warehouse is smaller. There is no new official conversion into days.",
+              so: "Do not reprint “3 days” as a September fact.",
+            },
+            {
+              judge: "Iron ore: the steel mill",
+              anchor: "On 29 September, 62% low-alumina fines were about $97.50/dmt. It follows the steel China is producing less of.",
+              so: "Do not put it on an AI leaderboard.",
+            },
+          ],
+        },
+      },
+      {
+        id: "lithium",
+        released: true,
+        layout: "thesis",
+        source: "紫金矿业 2026 年半年度报告；富宝资讯电池级碳酸锂 2026-09-28 为 12.24 万元/吨",
+        zh: {
+          title: "锂：新矿开得很快",
+          stance: "它复制不了铜那种「新矿要等很多年」",
+          summary:
+            "锂在手机电池和电动车里。紫金上半年当量碳酸锂 4.4 万吨，全年目标 12 万吨。供给爬得快，像一条街一年新开很多奶茶店。电池级现货 9 月 28 日大约 12.24 万元/吨，比 8 月底低了大约两成。正式报告没有写 +514%，这里也不写。稀土和钴的价格经常由出口管制和配额决定。",
+          points: [
+            {
+              judge: "锂：店开得快",
+              contrast: {
+                left: "4.4万吨",
+                leftLabel: "紫金上半年当量碳酸锂",
+                right: "12.2万元",
+                rightLabel: "9 月 28 日电池级，每吨",
+              },
+              anchor: "全年目标 12 万吨。价格已经从 8 月底往下走。",
+              so: "别用铜的「等很多年才有新矿」来套锂。",
+            },
+            {
+              judge: "稀土和钴看配额",
+              anchor: "耳机和电机里的磁铁、电池里的钴，价格经常被出口管制和配额打断。",
+              so: "这和电线、黄金那种自由定价不是同一套规则。",
+            },
+          ],
+        },
+        en: {
+          title: "Lithium: new supply arrives quickly",
+          stance: "It does not copy copper’s long wait for a new mine",
+          summary:
+            "Lithium is in the phone battery and the electric car. Zijin’s first-half lithium carbonate equivalent was 44 kt, with a full-year target of 120 kt. Supply ramps fast, like a street that opens many tea shops in one year. Battery-grade spot was about RMB 122,400/t on 28 September, roughly a fifth below the end of August. The formal report does not state +514%, and neither does this page. Rare earths and cobalt are often priced by export controls and quotas.",
+          points: [
+            {
+              judge: "Lithium: the shops open fast",
+              contrast: {
+                left: "44 kt",
+                leftLabel: "Zijin first-half LCE",
+                right: "122k",
+                rightLabel: "28 Sep battery grade, yuan per tonne",
+              },
+              anchor: "The full-year target is 120 kt. The price has already come down from the end of August.",
+              so: "Do not use copper’s decade-long mine wait as the lithium frame.",
+            },
+            {
+              judge: "Rare earths and cobalt follow quotas",
+              anchor: "Magnets in earbuds and motors, and cobalt in batteries, often have their prices interrupted by export controls and quotas.",
+              so: "That is a different rule from freely priced wire and gold.",
+            },
+          ],
+        },
+      },
+      {
+        id: "tin",
+        released: true,
+        layout: "thesis",
+        source: "Westmetall 2026-09-23 库存 4,675 吨；SMM 2026-09-25 收盘库存 4,590 吨。8 月中旬 5,535 吨约等于 3 天，见当时调研稿",
+        zh: {
+          title: "锡：焊点很小，仓库也很小",
+          stance: "9 月 25 日库存 4,590 吨",
+          summary:
+            "锡是把芯片焊在电路板上的那一点。9 月 25 日库存 4,590 吨，比 8 月中旬的 5,535 吨更少。5,535 吨当时大约等于全球 3 天的需求。仓库更低了，但「现在等于几天」没有新的官方换算，所以不把 3 天写成 9 月的结论。AI 服务器单台用锡大约是旧服务器的 4 倍，这句仍是 8 月稿，这次没有用新的原始报告重核。",
+          points: [
+            {
+              judge: "仓库更少了",
+              contrast: {
+                left: "5535吨",
+                leftLabel: "8 月中旬，当时约等于 3 天",
+                right: "4590吨",
+                rightLabel: "9 月 25 日",
+              },
+              anchor: "焊点很小，库存也只够很短的日子。",
+              so: "天数停在 8 月的口径，不往前推。",
+            },
+            {
+              judge: "和铜是同一类故事里更小的一份",
+              anchor: "芯片要焊住，所以 AI 服务器会多用一点锡。倍数这次不更新。",
+              so: "先看仓库还在不在，再看故事讲得多满。",
+            },
+          ],
+        },
+        en: {
+          title: "Tin: a small dot of solder, and a small warehouse",
+          stance: "Stocks were 4,590 tonnes on 25 September",
+          summary:
+            "Tin is the dot of solder holding a chip to the board. Stocks were 4,590 tonnes on 25 September, below 5,535 tonnes in mid-August. Those 5,535 tonnes were then about three days of world demand. The warehouse is smaller, and there is no new official conversion into days, so “three days” is not restated as a September fact. The claim that an AI server uses about four times the tin of an older server stays in the August draft and was not re-checked against a new primary note.",
+          points: [
+            {
+              judge: "The warehouse got smaller",
+              contrast: {
+                left: "5,535 t",
+                leftLabel: "Mid-August, then about 3 days",
+                right: "4,590 t",
+                rightLabel: "25 September",
+              },
+              anchor: "The solder dot is tiny, and the stock covers only a short stretch of days.",
+              so: "Leave the day-count on the August basis.",
+            },
+            {
+              judge: "A smaller cousin of the copper story",
+              anchor: "Chips have to be soldered, so an AI server uses some extra tin. The multiple is not updated.",
+              so: "Look at whether the warehouse is still there before trusting how full the story sounds.",
+            },
+          ],
+        },
+      },
       {
         id: "earnings",
         released: true,
@@ -66,55 +742,55 @@ export const books: Book[] = [
         id: "ai",
         released: true,
         layout: "compare",
-        source: "Kpler；ICSG；IEA 数据中心装机口径；POSCO 用钢测算",
+        source: "Kpler 2026-07-17；ICSG 2026-04-23；全球粗钢约 19 亿吨；中国地产用钢相对 2020 年峰值",
         zh: {
           title: "AI 对铜和铁矿，完全不是一回事",
-          stance: "对铜大致成立，对铁矿是噪音",
+          stance: "机房大约吃掉今年的铜增量。AI 只是其中 10–20 万吨。铁连 1% 都不到。",
           summary:
-            "双栏对照比并排两根柱更清楚。铜看的是边际那一吨；铁矿的钢需求增量相对全球粗钢只是零头，真正的定价权仍在中国地产和西非新增供给。",
+            "图上的 50 对 45 是数据中心这栋楼，不是 AI 芯片单独的用量。Kpler 把真正因 AI 设计多出来的铜单独估成 10–20 万吨。铁是 0.5% 对 −36%：AI 的钢相对一年全球粗钢可以忽略，中国地产少掉的钢比它大得多。",
           compare: {
             left: {
-              name: "铜",
+              name: "铜 · 50 对 45",
               lines: [
-                "2026 数据中心直接用铜约 30–70 万吨，中值约 50 万吨",
-                "全球铜需求增量约 45 万吨——一个行业吃掉全年增量",
-                "占总量不到 2%，却是紧平衡里的边际定价权",
-                "机制是供给赶不上温和但刚性的需求，不是指数爆炸",
+                "50 万吨：2026 年数据中心建设用铜，区间 30–70，图上取中值。",
+                "45 万吨：同一年，全球铜需求一共只多出来这么多。",
+                "其中真正因 AI 设计多出来的，Kpler 估成 10–20 万吨。电网用铜另计，不重复加进这栋楼。",
+                "机房不到全部用铜量的 2%。紧的时候，定价的是多出来的最后一吨。",
               ],
             },
             right: {
-              name: "铁矿",
+              name: "铁矿 · 0.5% 对 −36%",
               lines: [
-                "1GW 数据中心约需 10 万吨钢",
-                "未来五年累计钢需求约数百万至 1000 万吨",
-                "相对全球约 19 亿吨粗钢，约 0.5% 量级",
-                "中国地产用钢较峰值已下滑约 36.5%，完全盖过 AI 拉动",
+                "0.5%：未来五年数据中心要用的钢，最多约 1000 万吨，全球一年粗钢约 19 亿吨。",
+                "−36%：中国地产用钢相对 2020 年峰值已经少了这么多。",
+                "0.5 比 36 小一个数量级，所以 AI 盖不住地产少掉的钢。",
+                "铁矿价格仍看中国钢需求和海运新矿，不看数据中心。",
               ],
             },
           },
         },
         en: {
           title: "AI is not the same story for copper and iron ore",
-          stance: "Roughly true for copper; noise for iron ore",
+          stance: "Data-center buildings take this year’s extra copper. The AI-only slice is 0.10–0.20 Mt. Iron stays under 1%.",
           summary:
-            "A side-by-side is clearer than two bars. Copper is about the marginal tonne; iron’s steel pull from data centers is tiny versus global crude steel, so pricing still sits with China property and new seaborne supply.",
+            "The picture’s 0.50 against 0.45 is the building, not the AI chip on its own. Kpler puts the copper added by AI designs at 0.10–0.20 Mt. Iron is 0.5% against −36%: AI steel is a rounding error next to one year of global steel, and China property has already cut far more.",
           compare: {
             left: {
-              name: "Copper",
+              name: "Copper · 0.50 vs 0.45",
               lines: [
-                "2026 data-center copper use about 0.3–0.7 Mt, midpoint ~0.5 Mt",
-                "Global copper demand growth ~0.45 Mt—one sector can absorb the year’s increase",
-                "Under 2% of total use, but it sets the marginal price in a tight balance",
-                "The story is supply failing a mild rigid demand curve, not exponential boom",
+                "0.50 Mt: copper in 2026 data-center construction. The range is 0.30–0.70; the picture uses the midpoint.",
+                "0.45 Mt: all of the world’s extra copper demand in that same year.",
+                "Kpler puts the slice added by AI designs at 0.10–0.20 Mt. Grid copper is separate and is not added again.",
+                "The buildings are still under 2% of all copper used. In a tight market the last extra tonne sets the price.",
               ],
             },
             right: {
-              name: "Iron ore",
+              name: "Iron ore · 0.5% vs −36%",
               lines: [
-                "About 100 kt of steel per 1 GW of data centers",
-                "Cumulative steel need over five years: a few Mt to ~10 Mt",
-                "Versus ~1.9 bn t of global crude steel—about 0.5% scale",
-                "China property steel already down ~36.5% from peak, swamping the AI pull",
+                "0.5%: steel for data centers over five years, at most about 10 Mt, against about 1.9 billion tonnes of crude steel in a single year.",
+                "−36%: China property steel versus its 2020 peak.",
+                "0.5 is an order of magnitude smaller than 36, so AI does not replace the steel property stopped using.",
+                "Iron ore still prices off China steel demand and new seaborne supply, not data centers.",
               ],
             },
           },
@@ -170,7 +846,7 @@ export const books: Book[] = [
         id: "factors",
         released: true,
         layout: "thesis",
-        source: "TC/RC 长单公开结算；Grasberg 等矿端扰动公开报道；美国 232 条款商务部建议与市场隐含概率（法兴等）",
+        source: "TC/RC 长单公开结算；Grasberg 等矿端扰动公开报道；Reuters 2026-09-10；SMM 2026-09-29。法兴 2026 年 8 月隐含概率未重核",
         zh: {
           title: "铜价的八层因子",
           stance: "下一个最大催化剂往往不是 AI，是供给与关税",
@@ -194,15 +870,15 @@ export const books: Book[] = [
               so: "矿端明年恢复，也不等于精铜立刻宽松。",
             },
             {
-              judge: "232 条款是双向事件风险",
+              judge: "232 条款仍没有裁定",
               contrast: {
-                left: "≈37%",
-                leftLabel: "市场隐含 30% 关税概率",
-                right: "≈15%",
-                rightLabel: "市场隐含 15% 关税概率",
+                left: "15%",
+                leftLabel: "提议：2027年1月1日起",
+                right: "30%",
+                rightLabel: "提议：2028年1月1日起",
               },
-              anchor: "精炼铜关税尚未定案。落地会抽紧非美市场；否决则 COMEX 库存回流。",
-              so: "量级可到约 2000 美元/吨的事件冲击。",
+              anchor: "到 9 月 29 日仍没有最终决定。8 月法兴的隐含概率（30% 关税约 37%，15% 关税约 15%）这次没有重核。",
+              so: "没有公告不等于取消。落地会抽紧非美；若被否决，COMEX 库存回流。",
             },
             {
               judge: "需求不只是 AI",
@@ -260,15 +936,15 @@ export const books: Book[] = [
               so: "Mine recovery next year does not mean refined copper is loose now.",
             },
             {
-              judge: "Section 232 is two-sided event risk",
+              judge: "Section 232 still has no ruling",
               contrast: {
-                left: "~37%",
-                leftLabel: "implied odds of a 30% tariff",
-                right: "~15%",
-                rightLabel: "implied odds of a 15% tariff",
+                left: "15%",
+                leftLabel: "proposal from 1 Jan 2027",
+                right: "30%",
+                rightLabel: "proposal from 1 Jan 2028",
               },
-              anchor: "Refined-copper tariffs are still undecided. Passage tightens non-US markets; rejection sends COMEX stocks back.",
-              so: "Shock size can be on the order of $2,000/t.",
+              anchor: "No final decision as of 29 September. Société Générale’s August odds (about 37% for 30%, about 15% for 15%) were not rechecked.",
+              so: "Silence is not a cancellation. Passage tightens markets outside the US; rejection sends COMEX stocks back.",
             },
             {
               judge: "Demand is bigger than AI",
@@ -334,7 +1010,7 @@ export const books: Book[] = [
                 right: "−36.5%",
                 rightLabel: "地产用钢 vs 2020 峰值",
               },
-              anchor: "日均铁水仍偏高，是现价的底；平台化不等于重回增长。",
+              anchor: "8 月粗钢日产 241 万吨，1–8 月 6.52 亿吨。平台化不等于重回增长。",
               so: "AI 用钢相对 19 亿吨粗钢只是噪音。",
             },
             {
@@ -380,7 +1056,7 @@ export const books: Book[] = [
                 right: "−36.5%",
                 rightLabel: "property steel vs 2020 peak",
               },
-              anchor: "Daily hot-metal remains relatively high and floors spot prices; a plateau is not a return to growth.",
+              anchor: "August crude steel ran at 2.41 million tonnes a day; January–August was 652 million tonnes. A plateau is not a return to growth.",
               so: "AI steel need is noise versus ~1.9 bn t of crude steel.",
             },
             {
@@ -482,7 +1158,7 @@ export const books: Book[] = [
         id: "risks",
         released: true,
         layout: "thesis",
-        source: "Wood Mackenzie 数据中心在建比例；232 条款市场隐含概率；BHP FY27 产量与成本指引",
+        source: "Wood Mackenzie 数据中心在建比例；Reuters 2026-09-10；SMM 2026-09-29；BHP FY27 产量与成本指引。法兴 2026 年 8 月隐含概率未重核",
         zh: {
           title: "五个可能证伪的信号",
           stance: "叙事还在，这五盏灯先亮就要重估",
@@ -501,9 +1177,9 @@ export const books: Book[] = [
               so: "铜价最重要的需求侧下行灯之一。",
             },
             {
-              judge: "232 条款否决",
-              anchor: "解除 COMEX–LME 套利，美国库存回流，全球表瞬间宽松。",
-              so: "市场隐含里，30% 关税不落地的概率并不低。",
+              judge: "232 条款若被否决",
+              anchor: "到 9 月 29 日仍没有最终决定。提议仍是 2027 年 15%、2028 年 30%。若被否决，COMEX 库存回流，全球表会松。",
+              so: "8 月「30% 关税不落地的概率不低」没有重核，不拿来当现在的赔率。",
             },
             {
               judge: "金价回落",
@@ -546,9 +1222,9 @@ export const books: Book[] = [
               so: "One of the key downside lights on copper demand.",
             },
             {
-              judge: "Section 232 is rejected",
-              anchor: "COMEX–LME arb unwinds, US stocks re-enter the world, balances loosen fast.",
-              so: "Implied odds that a 30% tariff never lands are not small.",
+              judge: "Section 232, if it is rejected",
+              anchor: "No final decision as of 29 September. The proposal is still 15% in 2027 and 30% in 2028. Rejection would send COMEX stocks back and loosen the world balance.",
+              so: "The August line that “odds of no 30% tariff are not small” was not rechecked, so it is not the current price.",
             },
             {
               judge: "Gold falls",
@@ -570,643 +1246,6 @@ export const books: Book[] = [
               },
               anchor: "Higher prices need not mean higher profit.",
               so: "The sharpest gap between liking copper and liking copper equities.",
-            },
-          ],
-        },
-      },
-    ],
-  },
-  {
-    id: "metals",
-    shelf: "industry",
-    updated: "2026-08-21",
-    frame: {
-      zh: {
-        title: "读金属版图先抓这三问",
-        points: [
-          "这一年是不是普涨：贵金属崩盘和工业金属逼仓可以同时发生。",
-          "AI 对哪种金属真正敏感：铜和铀排前面，铁矿几乎是噪音。",
-          "缺的是金属还是加工试剂：硫酸可以同时卡住铜和铀。",
-        ],
-      },
-      en: {
-        title: "Read the metal map through three questions",
-        points: [
-          "Is it a broad bull year: precious-metal crashes and industrial squeezes can run together.",
-          "Which metals actually feel AI: copper and uranium lead; iron ore is mostly noise.",
-          "Is the scarcity the metal or the reagent: sulfuric acid can choke copper and uranium at once.",
-        ],
-      },
-    },
-    zh: {
-      title: "全球矿业：金属版图",
-      stance: "先看哪一种金属真正缺，再看公司",
-      blurb: "十一条、两场极端、铜逼仓、铀、AI 分级、铁矿、贵金属、硫酸、紫金、涨跌榜——长稿主线拆开。",
-    },
-    en: {
-      title: "Global mining: the metal map",
-      stance: "See which metal is actually scarce, then look at the company",
-      blurb: "Eleven conclusions, two extremes, copper squeeze, uranium, AI tiers, iron, precious, acid, Zijin, leaders—long memo spine split out.",
-    },
-    chapters: [
-      {
-        id: "summary",
-        released: true,
-        layout: "thesis",
-        source: "全球矿业深度调研（一手业绩与 LME / 现货公开价，截至 2026-08-18）",
-        zh: {
-          title: "十一条核心结论",
-          stance: "不是矿业普涨，是极端分化",
-          summary:
-            "先记住分化、铜取代铁、AI 分级、铁矿误配、铀与硫酸五条。后面各章只展开其中一条。",
-          points: [
-            {
-              judge: "同一年两场极端",
-              contrast: {
-                left: "+18%",
-                leftLabel: "铜年内（另有逼仓尖峰）",
-                right: "−22%",
-                rightLabel: "黄金自 1 月峰值回撤量级",
-              },
-              anchor: "贵金属崩盘与工业金属逼仓同时发生，是读 2026 矿业股的总纲。",
-              so: "别用一个“商品牛”标签给所有金属贴价。",
-            },
-            {
-              judge: "铜已是巨头第一利润源",
-              contrast: {
-                left: "54%",
-                leftLabel: "BHP FY26 铜占集团 EBITDA",
-                right: ">50%",
-                rightLabel: "力拓铜+铝+锂利润占比",
-              },
-              anchor: "这是十年资本配置转向的兑现，不是季度噪音。",
-              so: "读矿企先拆商品组合，再谈周期。",
-            },
-            {
-              judge: "AI 拉动要分级",
-              anchor: "强度大致：铜 ≈ 铀 > 电工钢 > 银 > 铝 > 锡 ≫ 铁矿。",
-              so: "BHP：每新增约 2000 亿美元/年数据中心投资，约需一座 15 万吨/年新铜矿。",
-            },
-            {
-              judge: "铀与硫酸常被低估",
-              contrast: {
-                left: "94–97",
-                leftLabel: "铀长协价（美元/磅，18 年高）",
-                right: "+160%",
-                rightLabel: "硫磺年内涨幅量级",
-              },
-              anchor: "长协溢价现货说明买方在买确定性；硫酸可同时卡住湿法铜与铀选厂。",
-              so: "第二条 AI 主线，加上一条跨品种瓶颈。",
-            },
-            {
-              judge: "政府先分走约 43%",
-              anchor: "BHP 计入权益金后实际负担约 42.9%。涨价进股东口袋前先乘约 0.57。",
-              so: "弹性表不算税负，会高估股权回报。",
-            },
-          ],
-        },
-        en: {
-          title: "Eleven conclusions",
-          stance: "Not a broad mining bull—extreme dispersion",
-          summary:
-            "Hold five first: dispersion, copper over iron, AI tiers, iron misallocation, uranium and acid. Later chapters expand one each.",
-          points: [
-            {
-              judge: "Two extremes in one year",
-              contrast: {
-                left: "+18%",
-                leftLabel: "Copper YTD (plus squeeze spikes)",
-                right: "−22%",
-                rightLabel: "Gold drawdown from the January peak",
-              },
-              anchor: "Precious-metal crash and industrial squeeze together are the 2026 mining frame.",
-              so: "Do not price every metal with one “commodities bull” label.",
-            },
-            {
-              judge: "Copper is now the majors’ top profit source",
-              contrast: {
-                left: "54%",
-                leftLabel: "BHP FY26 copper share of EBITDA",
-                right: ">50%",
-                rightLabel: "Rio copper+aluminium+lithium profit share",
-              },
-              anchor: "A decade of capital allocation, not a quarterly fluke.",
-              so: "Split the commodity mix before talking cycle.",
-            },
-            {
-              judge: "AI pull must be tiered",
-              anchor: "Rough intensity: copper ≈ uranium > GOES > silver > aluminium > tin ≫ iron ore.",
-              so: "BHP: ~$200 bn/year of extra data-center spend maps to about one new 150 ktpa copper mine.",
-            },
-            {
-              judge: "Uranium and acid are underwatched",
-              contrast: {
-                left: "94–97",
-                leftLabel: "Uranium term price ($/lb, 18-year high)",
-                right: "+160%",
-                rightLabel: "Sulfur YTD move, order of magnitude",
-              },
-              anchor: "Term over spot means buyers pay for certainty; acid can choke SX-EW copper and uranium mills.",
-              so: "A second AI line plus a cross-metal bottleneck.",
-            },
-            {
-              judge: "Government takes about 43% first",
-              anchor: "BHP’s take including royalties is about 42.9%. Equity gains need a ~0.57 multiplier.",
-              so: "Elasticity tables that ignore tax overstate shareholder returns.",
-            },
-          ],
-        },
-      },
-      {
-        id: "panorama",
-        released: true,
-        layout: "compare",
-        source: "LME / 现货公开价与公开报道时间线（截至 2026-08-18）",
-        zh: {
-          title: "2026 年两场极端行情",
-          stance: "贵金属见顶崩跌，铜在 8 月逼仓",
-          summary:
-            "左边是 1 月贵金属尖峰与回撤；右边是 8 月铜的库存与升水。同一年两套定价逻辑。",
-          compare: {
-            left: {
-              name: "1 月：贵金属",
-              lines: [
-                "黄金现货一度约 5,627 美元/盎司历史高",
-                "二季度为 2013 年来最差单季，6 月底见底约 3,955",
-                "白银自峰值回撤约一半量级",
-                "央行购金逻辑未破，但峰值价不能当估值锚",
-              ],
-            },
-            right: {
-              name: "8 月：铜",
-              lines: [
-                "LME 可用库存约 4 月中至 8 月初萎缩约 75%",
-                "现货较 3M 升水一度约 544 美元/吨",
-                "8 月 14 日 LME 启动紧急措施",
-                "紧张偏西方现货；上海库存上升是反向证据",
-              ],
-            },
-          },
-        },
-        en: {
-          title: "Two extreme markets in 2026",
-          stance: "Precious metals peaked and crashed; copper squeezed in August",
-          summary:
-            "Left: the January precious-metal spike and drawdown. Right: August copper inventories and spreads. Two pricing logics in one year.",
-          compare: {
-            left: {
-              name: "January: precious metals",
-              lines: [
-                "Gold peaked near $5,627/oz all-time high",
-                "Worst quarter since 2013; trough near $3,955 at end-June",
-                "Silver drawdown from the peak about half",
-                "Central-bank bid intact, but peak prices are not a valuation anchor",
-              ],
-            },
-            right: {
-              name: "August: copper",
-              lines: [
-                "LME available stocks down ~75% from mid-April to early August",
-                "Cash over 3M once ~$544/t",
-                "LME emergency measures on 14 Aug",
-                "Western cash tightness; rising Shanghai stocks are the counter-check",
-              ],
-            },
-          },
-        },
-      },
-      {
-        id: "copper",
-        released: true,
-        layout: "timeline",
-        source: "LME 公开市场数据与贸易商交仓报道（2026-08）",
-        zh: {
-          title: "铜：结构性短缺",
-          stance: "叙事已变成现货挤兑",
-          summary:
-            "时间线比单一价格更清楚：库存流失、升水拉宽、交易所干预、交仓回落。反向证据是中国高价抑制采购。",
-          timeline: [
-            { when: "4 月中起", what: "LME 可用库存持续流失，至 8 月初约萎缩 75%" },
-            { when: "8 月 6–7 日", what: "COMEX / LME 冲击纪录区，LME 突破约 14,000 美元/吨" },
-            { when: "8 月 14 日", what: "LME 启动紧急措施，限制现货进一步飙升" },
-            { when: "8 月 17 日", what: "现货较 3M 升水约 544 美元/吨；现货结算约 14,545" },
-            { when: "8 月 18 日", what: "贸易商交仓逾 2 万吨，价差回落；3M 收约 13,987" },
-          ],
-        },
-        en: {
-          title: "Copper: a structural shortage",
-          stance: "The narrative became a physical squeeze",
-          summary:
-            "A timeline beats a single print: stock drain, cash premium, exchange intervention, then deliveries. The counter-check is China buying restraint at high prices.",
-          timeline: [
-            { when: "From mid-April", what: "LME available stocks drained; ~75% down by early August" },
-            { when: "6–7 Aug", what: "COMEX/LME into record zones; LME through ~$14,000/t" },
-            { when: "14 Aug", what: "LME emergency measures to cap further cash spikes" },
-            { when: "17 Aug", what: "Cash over 3M ~$544/t; cash settle ~$14,545" },
-            { when: "18 Aug", what: "Traders delivered >20 kt; spreads eased; 3M ~$13,987" },
-          ],
-        },
-      },
-      {
-        id: "uranium",
-        released: true,
-        chart: "bar",
-        values: [86, 95],
-        source: "现货/长协公开报价；World Nuclear Association；Cameco / Kazatomprom 公开指引",
-        zh: {
-          title: "铀：被低估的 AI 受益品种",
-          stance: "长协溢价现货，买方在买确定性",
-          summary:
-            "现货约 85–88、长协约 94–97 美元/磅。AI 要 24/7 基荷，核电是可规模化的零碳选项之一；哈原下调产量约 10%。还要盯硫酸断供这种跨品种风险。",
-          categories: ["现货中枢", "长协中枢"],
-          seriesName: "美元 / 磅",
-          suffix: "",
-        },
-        en: {
-          title: "Uranium: an underpriced AI beneficiary",
-          stance: "Term over spot—buyers pay for certainty",
-          summary:
-            "Spot about $85–88 and term about $94–97/lb. AI wants 24/7 baseload; nuclear is one scalable zero-carbon option. Kazatomprom cut output aims ~10%. Watch sulfuric-acid shocks as a cross-metal risk.",
-          categories: ["Spot midpoint", "Term midpoint"],
-          seriesName: "$ / lb",
-          suffix: "",
-        },
-      },
-      {
-        id: "ai-tiers",
-        released: true,
-        layout: "thesis",
-        source: "调研正文第 3 章 AI 敞口强度排序；BHP 公开量化",
-        zh: {
-          title: "AI 对金属：必须分级",
-          stance: "铜 ≈ 铀 > 电工钢 > 银 > 铝 > 锡 ≫ 铁矿",
-          summary:
-            "同一 AI 资本开支叙事，对不同金属价格弹性差一个数量级。BHP：每新增约 2000 亿美元/年数据中心投资，约需一座 15 万吨/年新铜矿。",
-          points: [
-            {
-              judge: "第一梯队：铜与铀",
-              anchor: "铜吃边际紧平衡；铀吃 24/7 基荷叙事，长协已溢价现货。",
-              so: "这是 AI 主线里真正要定价的两种。",
-            },
-            {
-              judge: "银与铝是配角",
-              anchor: "银有光伏浆料与电子；铝有线缆替代，但过剩与库存结构不同。",
-              so: "有故事，弹性通常弱于铜。",
-            },
-            {
-              judge: "铁矿几乎是噪音",
-              contrast: {
-                left: "≈10万吨",
-                leftLabel: "1GW 数据中心用钢",
-                right: "≈19亿吨",
-                rightLabel: "全球粗钢",
-              },
-              anchor: "五年累计钢增量相对总量可忽略。",
-              so: "别把 AI 标签贴到铁矿敞口上。",
-            },
-          ],
-        },
-        en: {
-          title: "AI and metals: tier it",
-          stance: "Copper ≈ uranium > GOES > silver > aluminium > tin ≫ iron ore",
-          summary:
-            "One AI capex narrative, order-of-magnitude different price elasticities. BHP: ~$200 bn/year extra data-center spend ≈ one new 150 ktpa copper mine.",
-          points: [
-            {
-              judge: "Tier one: copper and uranium",
-              anchor: "Copper prices the tight margin; uranium prices 24/7 baseload with term over spot.",
-              so: "These two are what the AI line must actually price.",
-            },
-            {
-              judge: "Silver and aluminium are supporting",
-              anchor: "Silver has paste and electronics; aluminium has cable substitution—with different surplus structures.",
-              so: "Stories exist; torque is usually weaker than copper.",
-            },
-            {
-              judge: "Iron ore is mostly noise",
-              contrast: {
-                left: "~100 kt",
-                leftLabel: "Steel per 1 GW data center",
-                right: "~1.9 bn t",
-                rightLabel: "Global crude steel",
-              },
-              anchor: "Five-year cumulative steel add is a rounding error.",
-              so: "Do not paste an AI label on iron-ore exposure.",
-            },
-          ],
-        },
-      },
-      {
-        id: "iron",
-        released: true,
-        chart: "bar",
-        values: [190, 220],
-        source: "SMM 铁矿供需模型；Simandou 爬坡公开数据",
-        zh: {
-          title: "铁矿：过剩扩大，成本支撑上移",
-          stance: "空方看供给，多方看 80 美元以上才能活的矿山在增加",
-          summary:
-            "全球过剩约 190→220Mt；Simandou 成本可降至约 64 美元。同时约 260Mt 供给需要 80 美元以上才经济——支撑上移，不是短缺叙事。",
-          categories: ["2026 过剩示意", "2030 过剩示意"],
-          seriesName: "百万吨",
-          suffix: "",
-        },
-        en: {
-          title: "Iron ore: surplus widens, cost floor rises",
-          stance: "Bears on supply; bulls on more tonnes needing $80+",
-          summary:
-            "Global surplus ~190→220 Mt; Simandou costs toward ~$64. About 260 Mt still needs $80+ to stay economic—a higher floor, not a shortage story.",
-          categories: ["2026 surplus sketch", "2030 surplus sketch"],
-          seriesName: "Mt",
-          suffix: "",
-        },
-      },
-      {
-        id: "precious",
-        released: true,
-        chart: "bar",
-        values: [5627, 3955, 4387],
-        source: "现货黄金公开高点/低点/2026-08-18 附近报价",
-        zh: {
-          title: "贵金属：从纪录到腰斩再修复",
-          stance: "结构性牛市里可以出现 20%–45% 回撤",
-          summary:
-            "黄金 1 月约 5627 → 6 月约 3955 → 8 月约 4387。央行购金未破，但不能用峰值价做矿企估值锚。白银回撤更猛。",
-          categories: ["1 月峰值", "6 月低点", "8 月修复"],
-          seriesName: "黄金美元/盎司",
-          suffix: "",
-        },
-        en: {
-          title: "Precious metals: record, crash, repair",
-          stance: "Structural bulls can still draw down 20–45%",
-          summary:
-            "Gold ~5627 in January → ~3955 in June → ~4387 in August. Central-bank bid intact—do not value miners on the peak. Silver drew down harder.",
-          categories: ["Jan peak", "Jun trough", "Aug repair"],
-          seriesName: "Gold $/oz",
-          suffix: "",
-        },
-      },
-      {
-        id: "acid",
-        released: true,
-        layout: "thesis",
-        source: "调研正文结论十；硫磺现货与 Cameco Cigar Lake 断酸停产报道",
-        zh: {
-          title: "硫酸：跨品种单点风险",
-          stance: "真正的稀缺有时在试剂，不在金属名录",
-          summary:
-            "霍尔木兹扰动约一半海运硫磺；中国限制硫酸出口。硫磺年内涨幅可居全商品前列，同时卡住湿法铜与铀选厂。",
-          points: [
-            {
-              judge: "全商品级涨幅",
-              contrast: {
-                left: "+160%",
-                leftLabel: "硫磺年内涨幅量级",
-                right: "+265%",
-                rightLabel: "同比量级（公开转述）",
-              },
-              anchor: "缺口测算约 510 万吨量级。",
-              so: "西方关键矿产清单常漏掉加工试剂。",
-            },
-            {
-              judge: "铀：Cigar Lake 断酸",
-              anchor: "全球最高品位铀矿曾因选厂断酸停产约 12 天。",
-              so: "AI 主线也可以被一瓶酸卡住。",
-            },
-            {
-              judge: "铜与镍一并中招",
-              anchor: "智利/刚果金 SX-EW、印尼 HPAL 都高度吃硫。",
-              so: "一个海峡 + 一项出口限制，横跨多条 AI 相关金属。",
-            },
-          ],
-        },
-        en: {
-          title: "Sulfuric acid: a cross-metal single point",
-          stance: "Sometimes scarcity is the reagent, not the metal list",
-          summary:
-            "Hormuz disturbs ~half of seaborne sulfur; China curbs acid exports. Sulfur can lead all commodities YTD and choke SX-EW copper and uranium mills together.",
-          points: [
-            {
-              judge: "Commodity-leading move",
-              contrast: {
-                left: "+160%",
-                leftLabel: "Sulfur YTD, order of magnitude",
-                right: "+265%",
-                rightLabel: "y/y, order of magnitude",
-              },
-              anchor: "Gap sketches near ~5.1 Mt.",
-              so: "Western critical-mineral lists often omit reagents.",
-            },
-            {
-              judge: "Uranium: Cigar Lake acid outage",
-              anchor: "The world’s highest-grade uranium mine idled ~12 days on mill acid shortage.",
-              so: "An AI line can stall on one bottle of acid.",
-            },
-            {
-              judge: "Copper and nickel hit too",
-              anchor: "Chile/DRC SX-EW and Indonesia HPAL are sulfur-hungry.",
-              so: "One strait + one export curb spans multiple AI-linked metals.",
-            },
-          ],
-        },
-      },
-      {
-        id: "zijin",
-        released: true,
-        layout: "compare",
-        source: "紫金矿业 2026H1 业绩公告；与西方巨头对照见调研正文第 12 章",
-        zh: {
-          title: "紫金：以量补价的中国范式",
-          stance: "金价跌也能靠产量把净利做上去",
-          summary:
-            "2026H1 归母约 391 亿元（+68%）。全球金价上半年大跌背景下，矿产金 +15%。这是西方巨头规模大、并购慢、资本纪律严走不了的路。",
-          compare: {
-            left: {
-              name: "紫金路径",
-              lines: [
-                "金铜双核，几乎零铁矿拖累",
-                "并购换产量：阿基姆等贡献增量金",
-                "H1 归母 +68%，扣非 +75%",
-                "增长逻辑与 BHP/力拓资本配置不同",
-              ],
-            },
-            right: {
-              name: "读法",
-              lines: [
-                "不是西方巨头的折价版",
-                "金价回落会直接砍最大利润块之一",
-                "海外地缘与 A 股估值波动是标配风险",
-                "用「以量补价」框架，而不是铜铁弹性表",
-              ],
-            },
-          },
-        },
-        en: {
-          title: "Zijin: China’s volume-over-price paradigm",
-          stance: "Even with gold down, volume can still lift net profit",
-          summary:
-            "2026H1 net ~RMB 39.1 bn (+68%). With gold sharply lower in H1, mined gold still +15%. A path Western majors—large, slow M&A, strict capital discipline—rarely take.",
-          compare: {
-            left: {
-              name: "Zijin path",
-              lines: [
-                "Gold–copper core; almost no iron-ore drag",
-                "M&A for ounces: Akyem and peers add gold volume",
-                "H1 net +68%, adjusted +75%",
-                "Growth logic ≠ BHP/Rio capital allocation",
-              ],
-            },
-            right: {
-              name: "How to read it",
-              lines: [
-                "Not a discounted Western major",
-                "Gold down cuts one of the largest profit blocks",
-                "Overseas geopolitics and A-share volatility are base risks",
-                "Use a volume-over-price frame, not a Cu/Fe elasticity table",
-              ],
-            },
-          },
-        },
-      },
-      {
-        id: "tin-leaders",
-        released: true,
-        chart: "bar",
-        values: [37.5, 18, -22],
-        source: "LME / 现货 YTD（截至 2026-08 中下旬公开口径）",
-        zh: {
-          title: "涨跌榜：推翻两个流行叙事",
-          stance: "2026 不是贵金属牛市；工业品种才强",
-          summary:
-            "锡约 +37.5% 领涨金属；铜约 +18%；钯约 −22% 垫底。黄金全年几乎持平。商品强，但强的不是黄金叙事。",
-          categories: ["锡", "铜", "钯"],
-          seriesName: "年内涨跌幅示意",
-          suffix: "%",
-        },
-        en: {
-          title: "Leaders and laggards: two narratives break",
-          stance: "2026 is not a precious-metal bull; industrials lead",
-          summary:
-            "Tin ~+37.5% leads metals; copper ~+18%; palladium ~−22% lags. Gold roughly flat YTD. Commodities are strong—just not the gold story.",
-          categories: ["Tin", "Copper", "Palladium"],
-          seriesName: "YTD move sketch",
-          suffix: "%",
-        },
-      },
-      {
-        id: "lithium",
-        released: true,
-        layout: "thesis",
-        source: "紫金矿业 2026H1；调研正文第 8 章锂与政策品种",
-        zh: {
-          title: "锂与政策品种",
-          stance: "锂能快速扩产；稀土钴看配额",
-          summary:
-            "紫金当量碳酸锂 H1 产量同比约 +514%，全年目标约 12 万吨。锂难复制铜的结构性牛市，正因为供给爬坡太快。稀土/钴是政策博弈标的。",
-          points: [
-            {
-              judge: "锂：拐点可见，结构不同",
-              contrast: {
-                left: "+514%",
-                leftLabel: "紫金 H1 锂产量同比",
-                right: "12万吨",
-                rightLabel: "2026 全年目标",
-              },
-              anchor: "价已能支撑大规模资本开支；新增供给远快于铜。",
-              so: "别用铜的短缺框架硬套锂。",
-            },
-            {
-              judge: "稀土与钴：政策定价",
-              anchor: "中国出口管制、刚果金配额——价格曲线常被政策打断。",
-              so: "仓位管理与铜金自由定价品种完全不同。",
-            },
-            {
-              judge: "钼是被忽视的副产品",
-              anchor: "实现价从约 21 涨到约 32 美元/磅量级，抬铜矿现金利润。",
-              so: "读铜矿成本时，把钼/金抵扣单独盯。",
-            },
-          ],
-        },
-        en: {
-          title: "Lithium and policy metals",
-          stance: "Lithium can ramp fast; REE and cobalt follow quotas",
-          summary:
-            "Zijin’s H1 LCE-equivalent output ~+514% y/y; FY target ~120 kt. Lithium rarely copies copper’s structural bull because supply ramps too fast. REE/cobalt are policy trades.",
-          points: [
-            {
-              judge: "Lithium: inflection visible, structure different",
-              contrast: {
-                left: "+514%",
-                leftLabel: "Zijin H1 lithium output y/y",
-                right: "120 kt",
-                rightLabel: "2026 full-year target",
-              },
-              anchor: "Prices again support large capex; new supply ramps far faster than copper.",
-              so: "Do not force copper’s scarcity frame onto lithium.",
-            },
-            {
-              judge: "REE and cobalt: policy-priced",
-              anchor: "China export controls, DRC quotas—curves get politically interrupted.",
-              so: "Position sizing differs from freely priced Cu/Au.",
-            },
-            {
-              judge: "Molybdenum is the ignored by-product",
-              anchor: "Realized prices ~$21→~$32/lb lift copper-mine cash profit.",
-              so: "When reading copper cash costs, track Mo/Au credits separately.",
-            },
-          ],
-        },
-      },
-      {
-        id: "tin",
-        released: true,
-        layout: "thesis",
-        source: "LME 库存与 ITA 缺口估计；调研正文第 9 章锡",
-        zh: {
-          title: "锡：今年多头逻辑最干净",
-          stance: "库存约三天需求，AI 服务器耗锡数倍",
-          summary:
-            "YTD 约 +37.5% 领涨金属。缅甸复产上限锁住、2028 年前无大型新矿；LME 库存约 5500 吨量级。风险是复产加速与基金拥挤。",
-          points: [
-            {
-              judge: "物理紧",
-              contrast: {
-                left: "≈5535吨",
-                leftLabel: "LME 库存量级",
-                right: "≈3天",
-                rightLabel: "对应全球需求天数",
-              },
-              anchor: "ITA 预计 2026 缺口约 0.8–1.0 万吨，连续多年短缺。",
-              so: "叙事干净，但拥挤度要单独管。",
-            },
-            {
-              judge: "AI 是真实增量",
-              anchor: "AI 服务器单位耗锡数倍于传统服务器。",
-              so: "与铜同一大叙事，供需表更短更脆。",
-            },
-          ],
-        },
-        en: {
-          title: "Tin: cleanest bull case this year",
-          stance: "Stocks ~three days of demand; AI servers use several× tin",
-          summary:
-            "YTD ~+37.5% leads metals. Myanmar restart capped; no large new mines before 2028; LME stocks ~5.5 kt. Risks: faster restarts and crowded funds.",
-          points: [
-            {
-              judge: "Physically tight",
-              contrast: {
-                left: "~5,535 t",
-                leftLabel: "LME stocks, order of magnitude",
-                right: "~3 days",
-                rightLabel: "Global demand coverage",
-              },
-              anchor: "ITA sees ~8–10 kt 2026 deficit, multi-year short.",
-              so: "Clean story—manage crowding separately.",
-            },
-            {
-              judge: "AI is real incremental demand",
-              anchor: "AI servers use several times the tin of legacy boxes.",
-              so: "Same broad narrative as copper; shorter, more brittle balances.",
             },
           ],
         },
